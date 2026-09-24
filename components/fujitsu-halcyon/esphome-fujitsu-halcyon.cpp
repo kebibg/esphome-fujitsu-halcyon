@@ -278,13 +278,6 @@ void FujitsuHalcyonController::dump_config() {
     LOG_TZSP("  ", this);
 #endif
 
-    this->check_uart_settings(
-        fujitsu_general::airstage::h::UARTConfig.baud_rate,
-        this->uart_stop_bits_to_uart_config_stop_bits(fujitsu_general::airstage::h::UARTConfig.stop_bits),
-        this->uart_parity_to_uart_config_parity(fujitsu_general::airstage::h::UARTConfig.parity),
-        this->uart_data_bits_to_uart_config_data_bits(fujitsu_general::airstage::h::UARTConfig.data_bits)
-    );
-
     this->dump_traits_(TAG);
 }
 
