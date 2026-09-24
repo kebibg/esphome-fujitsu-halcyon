@@ -41,7 +41,7 @@ class FujitsuHalcyonController : public Component, public climate::Climate, publ
         custom::CustomButton* reset_filter_button = new custom::CustomButton([this]() { this->controller->reset_filter(this->ignore_lock_); });
         custom::CustomButton* advance_vertical_louver_button = new custom::CustomButton([this]() { this->controller->advance_vertical_louver(this->ignore_lock_); });
         custom::CustomButton* advance_horizontal_louver_button = new custom::CustomButton([this]() { this->controller->advance_horizontal_louver(this->ignore_lock_); });
-        custom::CustomSwitch* use_sensor_switch = new custom::CustomSwitch([this](bool state) { return this->controller->use_sensor(state, this->ignore_lock_); });
+        custom::CustomSwitch* use_sensor_switch = new custom::CustomSwitch([this](bool state) { return this->controller->use_sensor(state, this->ignore_lock_); }, true);
 
         std::array<custom::CustomSwitch*, fujitsu_general::airstage::h::MaxZone> zone_switches = [this] {
             std::array<custom::CustomSwitch*, fujitsu_general::airstage::h::MaxZone> switches;
