@@ -10,6 +10,7 @@
 namespace esphome::fujitsu_general_airstage_h_controller {
 
 static const auto TAG = "esphome::fujitsu_general_airstage_h_controller";
+static const auto PACKET_TAG = "fujitsu.packet";
 
 constexpr std::array ControllerName = { "Primary", "Secondary", "Undocumented" };
 
@@ -229,7 +230,7 @@ void FujitsuHalcyonController::log_buffer(const char* dir, const uint8_t* buf, s
 
     char pretty_buf[esphome::format_hex_pretty_size(tbuf.size())];
     esphome::format_hex_pretty_to(pretty_buf, sizeof(pretty_buf), tbuf.data(), tbuf.size(), ' ');
-    ESP_LOGD(TAG, "%s: %s", dir, pretty_buf);
+    ESP_LOGD(PACKET_TAG, "%s: %s", dir, pretty_buf);
 }
 
 void FujitsuHalcyonController::dump_config() {
